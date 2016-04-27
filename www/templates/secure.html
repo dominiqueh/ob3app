@@ -1,20 +1,28 @@
-<ion-view title="Secure Area">
+<ion-view title="New Entry">
   <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+    <!-- <button class="button button-icon icon ion-camera" ng-click="upload()"></button> -->
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-      <img ng-src="data:image/jpeg;base64, {{image[$index].image}}" width="100%" />
-    </div>
-    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-      <img ng-src="data:image/jpeg;base64, {{image[$index+1].image}}" width="100%" />
-    </div>
-    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-      <img ng-src="data:image/jpeg;base64, {{image[$index+2].image}}" width="100%" />
-    </div>
-    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-      <img ng-src="data:image/jpeg;base64, {{image[$index+3].image}}" width="100%" />
+    <div class="card">
+
+      <!-- <div class="row" ng-repeat="image in images"> -->
+      <div class="item item-divider">
+        <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+        <!-- <img ng-src="data:image/jpeg;base64, {{image.image}}" width="100px" /> Name: {{image.name}} -->
+        <img ng-src="data:image/jpeg;base64, {{image.image}}" width="80px" />
+      </div>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Placeholder 1" ng-model="vName">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Placeholder 2">
+      </label>
+
+      <button class="button item-button-right button-block button-positive" ng-click="addPerson(vName)">Add Weirdo</button>
+
     </div>
   </ion-content>
 </ion-view>
