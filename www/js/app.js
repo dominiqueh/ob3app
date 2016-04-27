@@ -3,8 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var obApp = angular.module('starter', ['ionic', 'ngCordova', 'firebase'])
-var fb = new Firebase("https://obapp.firebaseio.com/")
+var obApp = angular.module('starter', ['ionic', 'ngCordova', 'firebase']);
 
 
 obApp.run(function($ionicPlatform) {
@@ -23,9 +22,9 @@ obApp.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-})
+});
 
-obApp.config(function($stateProvider, $urlRouterProvider){
+obApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("firebase", {
       url: "/firebase",
@@ -33,18 +32,18 @@ obApp.config(function($stateProvider, $urlRouterProvider){
       controller: "FirebaseController",
       cache: false
     })
-    .state("secure",{
+    .state("secure", {
       url:"/secure",
       templateUrl:"templates/secure.html",
       controller: "SecureController"
-    })
+    });
     $urlRouterProvider.otherwise("/firebase");
 });
 
 //login controller
 
 obApp.controller("FirebaseController", function($scope, $state, $firebaseAuth) {
-  var fbAuth = $firebaseAuth(fb)
+  var fb = new Firebase("https://obapp.firebaseio.com/")
 
   $scope.login = function(username, password){
     fbAuth.$authWithPassword({
@@ -101,7 +100,7 @@ obApp.controller("SecureController"), function($scope, $ionicHistory, $firebaseA
       syncArray.$add({image: imageData}).then(function() {
         alert("The Image Was Saved")
       })
-    } function(error){
+    }, function(error){
       console.error("ERROR: " + error)
     })
   }
