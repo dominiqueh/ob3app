@@ -1,0 +1,20 @@
+<ion-view title="Secure Area">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+      <img ng-src="data:image/jpeg;base64, {{image[$index].image}}" width="100%" />
+    </div>
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+      <img ng-src="data:image/jpeg;base64, {{image[$index+1].image}}" width="100%" />
+    </div>
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+      <img ng-src="data:image/jpeg;base64, {{image[$index+2].image}}" width="100%" />
+    </div>
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+      <img ng-src="data:image/jpeg;base64, {{image[$index+3].image}}" width="100%" />
+    </div>
+  </ion-content>
+</ion-view>
